@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidProChat</string>
+    <string name="message_image_view">message image view</string>
+</resources>
