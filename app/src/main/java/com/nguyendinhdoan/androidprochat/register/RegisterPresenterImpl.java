@@ -21,9 +21,10 @@ public class RegisterPresenterImpl implements RegisterPresenter {
      * @param password is password of user enter
      */
     @Override
-    public void performRegister(String userName, String password) {
+    public void performRegister(String fullName, String userName, String password) {
         registerView.showLoading();
         QBUser qbUser = new QBUser(userName, password);
+        qbUser.setFullName(fullName);
 
         QBUsers.signUp(qbUser).performAsync(
                 new QBEntityCallback<QBUser>() {

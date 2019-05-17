@@ -2,7 +2,7 @@ package com.nguyendinhdoan.androidprochat.login;
 
 public interface LoginView {
 
-    void onLoginSuccess(boolean isLoginSuccess);
+    void onLoginSuccess(String userName, String password);
 
     void onLoginFailed(String message);
 

@@ -20,7 +20,7 @@ public class LoginPresenterImpl implements LoginPresenter {
      * @param userName name of user
      * @param password password of user
      */
-    public void performLogin(String userName, String password) {
+    public void performLogin(final String userName, final String password) {
         loginView.showLoading();
         QBUser qbUser = new QBUser(userName, password);
 
@@ -28,7 +28,7 @@ public class LoginPresenterImpl implements LoginPresenter {
                 new QBEntityCallback<QBUser>() {
                     @Override
                     public void onSuccess(QBUser qbUser, Bundle bundle) {
-                        loginView.onLoginSuccess(true);
+                        loginView.onLoginSuccess(userName, password);
                         loginView.hideLoading();
                     }
 

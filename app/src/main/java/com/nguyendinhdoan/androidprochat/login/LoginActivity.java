@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.nguyendinhdoan.androidprochat.R;
+import com.nguyendinhdoan.androidprochat.chat.ChatActivity;
 import com.nguyendinhdoan.androidprochat.common.Constants;
 import com.nguyendinhdoan.androidprochat.register.RegisterActivity;
 import com.quickblox.auth.session.QBSettings;
@@ -97,10 +98,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onLoginSuccess(boolean isLoginSuccess) {
-        if (isLoginSuccess) {
-            Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
-        }
+    public void onLoginSuccess(String userName, String password) {
+        Toast.makeText(this, "login success", Toast.LENGTH_SHORT).show();
+        launchChatScreen(userName, password);
+    }
+
+    private void launchChatScreen(String userName, String password) {
+        Intent chatIntent = ChatActivity.start(this);
+
+        chatIntent.putExtra(Constants.USER_NAME_KEY, userName);
+        chatIntent.putExtra(Constants.PASSWORD_KEY, password);
+        chatIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        startActivity(chatIntent);
+        finish();
     }
 
     @Override

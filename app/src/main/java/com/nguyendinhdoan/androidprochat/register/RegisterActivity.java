@@ -19,7 +19,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
 
-    private TextInputEditText registerUserNameEditText, registerPasswordEditText;
+    private TextInputEditText registerUserNameEditText, registerPasswordEditText, registerFullNameEditText;
     private Button registerSignUpButton, registerCancelButton;
     private ProgressBar registerLoading;
 
@@ -51,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void initViews() {
         registerUserNameEditText = findViewById(R.id.register_user_name_edit_text);
         registerPasswordEditText = findViewById(R.id.register_password_edit_text);
+        registerFullNameEditText = findViewById(R.id.register_full_name_edit_text);
         registerSignUpButton = findViewById(R.id.register_sign_up_button);
         registerCancelButton = findViewById(R.id.register_cancel_button);
         registerLoading = findViewById(R.id.register_loading);
@@ -78,10 +79,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void handleRegister() {
+        String fullName = registerFullNameEditText.getText().toString();
         String userName = registerUserNameEditText.getText().toString();
         String password = registerPasswordEditText.getText().toString();
 
-        registerPresenter.performRegister(userName, password);
+        registerPresenter.performRegister(fullName, userName, password);
     }
 
     @Override

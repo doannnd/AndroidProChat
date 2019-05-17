@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AndroidProChat</string>
     <string name="message_image_view">message image view</string>
+    <string name="hint_full_name">Full name</string>
     <string name="hint_user_name">User name</string>
     <string name="hint_password">Password</string>
     <string name="login_button_text">Login</string>
@@ -8,4 +9,5 @@
     <string name="cancel_button_text">Cancel</string>
     <string name="test_user_name">doan</string>
     <string name="test_password">11111111</string>
+    <string name="test_full_name">doannd</string>
 </resources>
